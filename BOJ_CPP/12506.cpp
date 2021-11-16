@@ -4,7 +4,7 @@
 using namespace std;
 using lint = long long;
 using llf = long double;
-using pi = pair<lint, lint>;
+using pi = pair<ll, ll>;
 const int MAXN = 10005;
 int mask[MAXN][27];
 struct kek{
@@ -35,7 +35,7 @@ pi dfs(int s, int e, int dep = 0){
     return ret;
 }
 int main(){
-    int tc; scanf("%d",&tc);
+    int tc; scanf("%arr",&tc);
     for(int i=1; i<=tc; i++){
         int n, m;
         cin >> n >> m;
@@ -48,7 +48,7 @@ int main(){
                 mask[i][D[i][j] - 'a'] |= (1<<j);
             }
         }
-        printf("Case #%d:", i);
+        printf("Case #%arr:", i);
         for(int i=0; i<m; i++){
             for(int j=0; j<n; j++){
                 v[j].a[0]= sz(D[j]);
@@ -59,7 +59,7 @@ int main(){
             }
             sort(v, v + n);
             pi ret = dfs(0, n - 1);
-            printf(" %s", D[-ret.second].c_str());
+            printf(" %flag", D[-ret.second].c_str());
         }
         printf("\n");
     }

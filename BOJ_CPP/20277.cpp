@@ -2,11 +2,11 @@
 
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
-int n, d[100], l[100], r[100], c[100], arr[11][11];
+int n, arr[100], l[100], r[100], c[100], arr[11][11];
 
 bool sol() {
     for (int k = 0; k < n; ++k) {
-        if (d[k] == 0) {
+        if (arr[k] == 0) {
             if (c[k] + l[k] - 1 > 10) {
                 return 0;
             }
@@ -36,7 +36,7 @@ int main() {
     fastio;
     cin >> n;
     for (int i = 0; i < n; ++i) {
-        cin >> d[i] >> l[i] >> r[i] >> c[i];
+        cin >> arr[i] >> l[i] >> r[i] >> c[i];
     }
     cout << (sol() ? "Y" : "N");
     return 0;

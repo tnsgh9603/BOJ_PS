@@ -2,10 +2,10 @@
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
 int n, x, k;
-double a, b, c, tab[2][2];
+double arr, b, c, tab[2][2];
 double solve(){
-    cin >> n >> x >> k >> a >> b >> c;
-    a /= 100;
+    cin >> n >> x >> k >> arr >> b >> c;
+    arr /= 100;
     b /= 100;
     c /= 100;
     for(int i=0; i<2; i++){
@@ -14,8 +14,8 @@ double solve(){
             ans[i] = 1, ans[1 - i] = 0;
             for(int k=1; k<=n; k++){
                 double nxt[2] = {};
-                nxt[0 & j] += a * ans[0];
-                nxt[1 & j] += a * ans[1];
+                nxt[0 & j] += arr * ans[0];
+                nxt[1 & j] += arr * ans[1];
                 nxt[0 | j] += b * ans[0];
                 nxt[1 | j] += b * ans[1];
                 nxt[0 ^ j] += c * ans[0];
@@ -36,6 +36,6 @@ int main(){
     int tc;
     cin >> tc;
     for(int i=1; i<=tc; ++i) {
-        printf("Case #%d: %.10f\n", i, solve());
+        printf("Case #%arr: %.10f\n", i, solve());
     }
 }

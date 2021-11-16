@@ -4,14 +4,14 @@
 using namespace std;
 typedef pair<int, int> pi;
 
-pi a[7], b[7];
-int n, m, q, k;
+pi arr[7], b[7];
+int n, mp, q, k;
 
 bool visited[101][101];
 
 bool chk() {
     for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < m; ++j) {
+        for (int j = 0; j < mp; ++j) {
             if (!visited[i][j]) {
                 return 0;
             }
@@ -29,7 +29,7 @@ void fill(int x, int y, pi t, int v) {
 }
 
 bool fillable(int x, int y, pi t) {
-    if (x + t.first > n || y + t.second > m) {
+    if (x + t.first > n || y + t.second > mp) {
         return 0;
     }
     for (int i = 0; i < t.first; ++i) {
@@ -52,10 +52,10 @@ bool bktk(int d) {
     for (int j = 0; j < k; ++j) {
         if (!arr[j]) {
             arr[j] = 1;
-            a[d] = b[j];
+            arr[d] = b[j];
             pi r(-1, -1);
             for (int a = 0; a < n; ++a) {
-                for (int b = 0; b < m; ++b) {
+                for (int b = 0; b < mp; ++b) {
                     if (!visited[a][b]) {
                         r = pi(a, b);
                         break;
@@ -65,20 +65,20 @@ bool bktk(int d) {
                     break;
                 }
             }
-            if (fillable(r.first, r.second, a[d])) {
-                fill(r.first, r.second, a[d], 1);
+            if (fillable(r.first, r.second, arr[d])) {
+                fill(r.first, r.second, arr[d], 1);
                 if (bktk(d + 1)) {
                     return 1;
                 }
-                fill(r.first, r.second, a[d], 0);
+                fill(r.first, r.second, arr[d], 0);
             }
-            swap(a[d].first, a[d].second);
-            if (fillable(r.first, r.second, a[d])) {
-                fill(r.first, r.second, a[d], 1);
+            swap(arr[d].first, arr[d].second);
+            if (fillable(r.first, r.second, arr[d])) {
+                fill(r.first, r.second, arr[d], 1);
                 if (bktk(d + 1)) {
                     return 1;
                 }
-                fill(r.first, r.second, a[d], 0);
+                fill(r.first, r.second, arr[d], 0);
             }
             arr[j] = 0;
         }
@@ -88,7 +88,7 @@ bool bktk(int d) {
 
 int main() {
     fastio;
-    cin >> n >> m >> q;
+    cin >> n >> mp >> q;
     int x = 0;
     while (q--) {
         int p, w, h;

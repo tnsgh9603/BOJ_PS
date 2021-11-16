@@ -2,10 +2,10 @@
 
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
-int d[10][10],v[10][10],n,m,k=64,x,y;
+int arr[10][10],v[10][10],n,m,k=64,x,y;
 int f1(int c, int r){
     int cnt=1;
-    if(c<0 || r<0 || c>=n || r>=m || v[c][r] || d[c][r]==1) {
+    if(c<0 || r<0 || c>=n || r>=m || v[c][r] || arr[c][r] == 1) {
         return 0;
     }
     v[c][r]=1;
@@ -14,7 +14,7 @@ int f1(int c, int r){
 }
 int f(){
     int cnt=0;
-    for(int i =0;i<n;i++) for(int j =0; j<m;j++) if(d[i][j]==2 && !v[i][j]) cnt+=f1(i,j);
+    for(int i =0;i<n;i++) for(int j =0; j<m;j++) if(arr[i][j] == 2 && !v[i][j]) cnt+=f1(i, j);
     return cnt;
 }
 void go(int s, int l){
@@ -26,12 +26,12 @@ void go(int s, int l){
     }
     for(int i =s; i<n*m;i++){
         int a=i/m,b=i%m;
-        if(!d[a][b])d[a][b]=1,go(s+1,l+1),d[a][b]=0;
+        if(!arr[a][b])arr[a][b]=1,go(s + 1, l + 1), arr[a][b]=0;
     }
 }
 int main(){
-    scanf("%d %d",&n,&m);
-    for(int i =0; i < n ;i++) for(int j =0; j<m;j++) scanf("%d",&d[i][j]),x=d[i][j]==1?x+1:x;
+    scanf("%arr %arr",&n,&m);
+    for(int i =0; i < n ;i++) for(int j =0; j<m;j++) scanf("%arr",&arr[i][j]), x= arr[i][j] == 1 ? x + 1 : x;
     go(0,0);
-    printf("%d",n*m-x-3-k);
+    printf("%arr",n*m-x-3-k);
 }

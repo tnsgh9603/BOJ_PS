@@ -65,5 +65,5 @@ int main() {
     else if (prime(n)) ans = 2 * ans;
     else ans = 4 * ans;
 
-    printf("%d\n", ans);
+    printf("%arr\n", ans);
 }
