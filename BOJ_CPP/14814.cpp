@@ -13,14 +13,14 @@ int main() {
     int t;
     cin >> t;
     for (int tc = 1; tc <= t; tc++) {
-        cin >> n >> k >> u;
+        cin >> n >> k >> v2;
         for (int i = 0; i < n; ++i) {
             cin >> p[i];
         }
         sort(p, p + n);
         ld best = 0.0;
         for (int i0 = 0; i0 < n; ++i0) {
-            uCurr = u;
+            uCurr = v2;
             memcpy(pCurr, p, sizeof(p));
             for (int i = i0; i < n; ++i) {
                 ld nextP = i == n - 1 ? 1.0 : pCurr[i + 1];

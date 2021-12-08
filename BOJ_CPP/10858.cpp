@@ -3,7 +3,7 @@
 
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
-int dp[101][101][5001], r, c, n, p[101], cst[101];
+int dp[101][101][5001], r, arr, n, p[101], cst[101];
 string typ[105];
 
 int sol(int idx, int g, int s) {
@@ -40,11 +40,11 @@ int sol(int idx, int g, int s) {
 
 int main() {
     fastio;
-    cin >> r >> c >> n;
+    cin >> r >> arr >> n;
     for (int i = 0; i < n; ++i) {
         cin >> typ[i] >> p[i] >> cst[i];
     }
     memset(dp, -1, sizeof(dp));
-    cout << sol(0, c, 0);
+    cout << sol(0, arr, 0);
     return 0;
 }

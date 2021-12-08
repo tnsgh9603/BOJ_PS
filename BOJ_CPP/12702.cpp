@@ -42,12 +42,12 @@ int bino(int x, int y) {
 int solve() {
     int w, h, n;
     cin >> w >> h >> n;
-    a[0] = pi(1, 1);
-    a[n + 1] = pi(w, h);
+    P[0] = pi(1, 1);
+    P[n + 1] = pi(w, h);
     for (int i = 1; i <= n; ++i) {
-        cin >> a[i].first >> a[i].second;
+        cin >> P[i].first >> P[i].second;
     }
-    sort(a + 1, a + n + 1);
+    sort(P + 1, a + n + 1);
     memset(cnt, 0, sizeof(cnt));
     for (int i = 0; i <= n + 1; ++i) {
         for (int j = i + 1; j <= n + 1; ++j) {

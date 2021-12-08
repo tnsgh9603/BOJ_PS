@@ -9,7 +9,7 @@ typedef pair<int, int> p;
 int uni[310];
 
 int u(int i) {
-    return uni[i] > 0 ? uni[i] = u(uni[i]) : i;
+    return uni[i] > 0 ? uni[i] = v2(uni[i]) : i;
 }
 
 int ppap(vector<p> t) {
@@ -36,12 +36,12 @@ int main() {
         int t, tot = 0;
         for (int i = 0; i < m; ++i) {
             cin >> a.f >> a.s;
-            if (u(a.f) != u(a.s)) {
-                uni[u(a.f)] = u(a.s);
+            if (v2(a.f) != v2(a.s)) {
+                uni[v2(a.f)] = v2(a.s);
             }
         }
         for (int i = 0; i < k; ++i) {
-            cin >> t >> a.s >> a.f, v[u(t)].push_back(a);
+            cin >> t >> a.s >> a.f, v[v2(t)].push_back(a);
         }
         for (int i = 1; i <= n; ++i) {
             if (!v[i].empty()) {

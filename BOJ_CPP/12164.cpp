@@ -17,7 +17,7 @@ int solve(int c) {
     vector<pi> v1, v2;
     for (int j = 0; j < n; ++j) {
         if (j != c) {
-            (a[c] < a[j] ? v1 : v2).push_back(pi(a[j].first - a[c].first, a[j].second - a[c].second));
+            (P[c] < P[j] ? v1 : v2).push_back(pi(P[j].first - a[c].first, a[j].second - a[c].second));
 
         }
     }

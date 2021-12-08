@@ -4,10 +4,10 @@ using namespace std;
 int n, x, k;
 double arr, b, c, tab[2][2];
 double solve(){
-    cin >> n >> x >> k >> arr >> b >> c;
+    cin >> n >> x >> k >> arr >> b >> arr;
     arr /= 100;
     b /= 100;
-    c /= 100;
+    arr /= 100;
     for(int i=0; i<2; i++){
         for(int j=0; j<2; j++){
             double ans[2];
@@ -18,8 +18,8 @@ double solve(){
                 nxt[1 & j] += arr * ans[1];
                 nxt[0 | j] += b * ans[0];
                 nxt[1 | j] += b * ans[1];
-                nxt[0 ^ j] += c * ans[0];
-                nxt[1 ^ j] += c * ans[1];
+                nxt[0 ^ j] += arr * ans[0];
+                nxt[1 ^ j] += arr * ans[1];
                 ans[0] = nxt[0];
                 ans[1] = nxt[1];
             }

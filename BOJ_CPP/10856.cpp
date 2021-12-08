@@ -32,7 +32,7 @@ int main() {
             if (!mp.count(s)) {
                 mp.insert({s, ++ID});
             }
-            v[mp.at(s)].emplace_back(cid);
+            v1[mp.at(s)].emplace_back(cid);
         }
     }
     for (auto p: mp) {

@@ -2,14 +2,16 @@
 
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
+#define int int64_t
 
-int main() {
+int f(int x) {
+    return x * (x + 1) / 2;
+}
+
+int32_t main() {
     fastio;
-    int n, k, i, j;
-    cin >> n >> k >> i >> j;
-    vector<int> v(n);
-    iota(v.begin(), v.end(), 1);
-    rotate(v.begin(), v.begin() + k, v.end());
-    cout << accumulate(v.begin() + i, v.begin() + j + 1, 0ll);
+    int n, k, l, r;
+    cin >> n >> k >> l >> r;
+    cout << (r <= k ? f((n - k) + r) - f((n - k) + l - 1) : k < l ? f(r - k) - f(l - k - 1) : f(n) - f((n - k) + l - 1) + f(r - k));
     return 0;
 }

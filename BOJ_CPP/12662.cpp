@@ -12,7 +12,7 @@ int main() {
         int n;
         cin >> n;
         for (int i = 0; i < n; ++i) {
-            cin >> a[i] >> b[i] >> c[i];
+            cin >> arr[i] >> b[i] >> c[i];
         }
         int m = 0;
         for (int cc = 0; cc <= 10000; ++cc) {
@@ -21,9 +21,9 @@ int main() {
                 v[kk] = 0;
             }
             for (int j = 0; j < n; ++j) {
-                if (c[j] <= cc && a[j] + b[j] + cc <= 10000) {
+                if (c[j] <= cc && arr[j] + b[j] + cc <= 10000) {
                     ++h[b[j]];
-                    ++v[a[j]];
+                    ++v[arr[j]];
                 }
             }
             int q = 0;

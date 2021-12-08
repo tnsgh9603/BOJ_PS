@@ -10,7 +10,7 @@ int main() {
     int w, s, x, y;
     cin >> w >> s >> x >> y;
     for (int i = 1; i <= w; ++i) {
-        v[i].resize(x);
+        v1[i].resize(x);
         for (int j = 0; j < x; ++j) {
             cin >> v[i][j];
         }

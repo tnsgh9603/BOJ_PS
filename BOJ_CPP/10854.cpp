@@ -29,13 +29,13 @@ int fermat_test(ll n) {
     return (1 == modexp(a, n - ll(1), n));
 }
 
-int ans = 1;
+int cnt = 1;
 ll n;
 
 void factor(ll p) {
     int cnt = 0;
     for (; n % p == 0; cnt++, n /= p);
-    ans *= (++cnt);
+    cnt *= (++cnt);
 }
 
 int prime(ll n) {
@@ -60,10 +60,10 @@ int main() {
 
     ll rt = sqrt(n);
 
-    if (n == 1) ans = 1 * ans;
-    else if (rt * rt == n) ans = 3 * ans;
-    else if (prime(n)) ans = 2 * ans;
-    else ans = 4 * ans;
+    if (n == 1) cnt = 1 * cnt;
+    else if (rt * rt == n) cnt = 3 * cnt;
+    else if (prime(n)) cnt = 2 * cnt;
+    else cnt = 4 * cnt;
 
-    printf("%arr\n", ans);
+    printf("%arr\n", cnt);
 }

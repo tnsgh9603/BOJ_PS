@@ -2,7 +2,7 @@
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 #define sz(v) ((int)(v).size())
 using namespace std;
-using lint = long long;
+using ll = long long;
 using llf = long double;
 using pi = pair<ll, ll>;
 const int MAXN = 10005;
@@ -16,19 +16,19 @@ struct kek{
 }v[MAXN];
 pi dfs(int s, int e, int dep = 0){
     if(s == e){
-        return pi(0, -v[s].idx);
+        return pi(0, -v1[s].idx);
     }
     bool chk = 0;
     for(int i=s; i<=e; i++){
-        if(v[i].a[dep]) chk = 1;
+        if(v1[i].arr[dep]) chk = 1;
     }
     pi ret(-1, -1);
     for(int i=s; i<=e; ){
         int j = i;
-        while(j <= e && v[i].a[dep] == v[j].a[dep]) j++;
+        while(j <= e && v1[i].arr[dep] == v1[j].arr[dep]) j++;
         j--;
         auto foo = dfs(i, j, dep + 1);
-        if(chk && v[i].a[dep] == 0) foo.first++;
+        if(chk && v1[i].arr[dep] == 0) foo.first++;
         ret = max(ret, foo);
         i = j+1;
     }
@@ -51,13 +51,13 @@ int main(){
         printf("Case #%arr:", i);
         for(int i=0; i<m; i++){
             for(int j=0; j<n; j++){
-                v[j].a[0]= sz(D[j]);
+                v1[j].arr[0]= sz(D[j]);
                 for(int k=0; k<26; k++){
-                    v[j].a[k+1] = mask[j][L[i][k] - 'a'];
+                    v1[j].arr[k + 1] = mask[j][L[i][k] - 'a'];
                 }
-                v[j].idx = j;
+                v1[j].idx = j;
             }
-            sort(v, v + n);
+            sort(v1, v1 + n);
             pi ret = dfs(0, n - 1);
             printf(" %flag", D[-ret.second].c_str());
         }

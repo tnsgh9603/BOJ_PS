@@ -2,7 +2,7 @@
 
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
-char ch[200'001];
+char Complex[200'001];
 int len;
 long long X;
 int table[5][5] = { {0,0,0,0,0}, {0, 1, 2, 3, 4}, {0, 2, -1, 4, -3}, {0, 3, -4, -1, 2}, {0, 4, 3, -2, -1} };
@@ -29,10 +29,10 @@ int main() {
     cin >> test;
     for (int T = 1; T <= test; ++T) {
         scanf("%d %lld", &len, &X);
-        scanf("%s", &ch[1]);
+        scanf("%s", &Complex[1]);
         printf("Case #%d: ", T);
         int p = 1;
-        for (i = 1; i <= len; i++) p = go(p, tonum(ch[i]));
+        for (i = 1; i <= len; i++) p = go(p, tonum(Complex[i]));
 
         if (X >=16){
             X %= 4LL;
@@ -45,14 +45,14 @@ int main() {
         if (p == -1) {
             for (i = 1; i <= len; i++) {
                 for (j = 1; j < X; j++) {
-                    ch[j*len + i] = ch[i];
+                    Complex[j * len + i] = Complex[i];
                 }
             }
             len *= X;
             p = 1;
             int cnt = 2;
             for (i = 1; i <= len; i++) {
-                p = go(p, tonum(ch[i]));
+                p = go(p, tonum(Complex[i]));
                 if (p == cnt) {
                     if (cnt == 4) break;
                     cnt++;

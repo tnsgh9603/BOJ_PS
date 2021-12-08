@@ -3,8 +3,8 @@
 using namespace std;
 
 int n;
-bitset<60'001> a, b, ans;
-vector<int> c;
+bitset<60'001> a, b, cnt;
+vector<int> arr;
 
 int main() {
     cin >> n;
@@ -13,8 +13,8 @@ int main() {
         a.set(i + 30'000);
     }
     cin >> n;
-    c.resize(n);
-    for (auto &i: c) cin >> i, i += 30'000;
+    arr.resize(n);
+    for (auto &i: arr) cin >> i, i += 30'000;
 
     cin >> n;
     for (int i; n--;) {
@@ -23,13 +23,13 @@ int main() {
     }
 
     long long cnt = 0;
-    for (auto &i: c) {
+    for (auto &i: arr) {
         i = 60'000 - i * 2;
         if (i > 0)
-            ans = (a << i) & b;
+            cnt = (a << i) & b;
         else
-            ans = (a >> (-i)) & b;
-        cnt += ans.count();
+            cnt = (a >> (-i)) & b;
+        cnt += cnt.count();
     }
     cout << cnt;
     return 0;
