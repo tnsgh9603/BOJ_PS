@@ -3,27 +3,27 @@
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
 
+typedef long long ll;
+
 int main() {
     fastio;
-    int n;
+    ll n, cnt = 0;
     cin >> n;
-    vector<tuple<int, int, int>> v(n);
-    for (auto&[a, b, c]: v) {
-        cin >> b >> c;
-        a = b + c;
-    }
-    sort(v.begin(), v.end());
-    int temp = get<0>(v[0]), prev = temp / 2, cnt = 0;
-    for (int i = 1; i < n; ++i) {
-        temp = get<0>(v[i]);
-        if(prev < temp) {
-            prev = temp - prev;
-            ++cnt;
-        }
-        else {
-            break;
+    vector<ll> v(n);
+    for (int i = 0, a, b; i < n && cin >> a >> b; v[i++] = a + b);
+    for (int i = 0, j = 0; i < n; i = j, ++cnt) {
+        for (ll l = 0, r = v[i], t = 0; j < n && l <= r; ++j) {
+            const ll val = j + 1 < n ? min(v[j], v[j + 1]) : v[j];
+            t = v[j] - t;
+            if (j - i + 1 & 1) {
+                l = max(l, t - val);
+                r = min(r, t);
+            } else {
+                l = max(l, -t);
+                r = min(r, val - t);
+            }
         }
     }
-    cout << cnt;
+    cout << n - cnt;
     return 0;
 }
