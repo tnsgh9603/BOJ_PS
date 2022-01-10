@@ -5,13 +5,8 @@ using namespace std;
 
 int main() {
     fastio;
-    double a, b;
-    while (cin >> a >> b && a) {
-        double mn = 987654321;
-        for (double i = 1; i <= a; ++i) {
-            mn = min(mn, abs(hypot(i, a - i) - b));
-        }
-        cout << fixed << setprecision(3) << mn << "\n";
-    }
+    int a, b;
+    cin >> a >> b;
+    cout << max(a + b, a - b) << "\n" << min(a + b, a - b);
     return 0;
 }
