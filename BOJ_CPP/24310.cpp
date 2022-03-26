@@ -5,29 +5,28 @@ using namespace std;
 
 int main() {
     fastio;
-    int a, b, c, d, sum = 0, temp;
+    int a, b, c, d, temp1, temp2;
     cin >> a >> b >> c >> d;
-    temp = a;
-    a = min(a, d);
-    d = max(temp, d);
-    temp = b;
-    b = min(b, c);
-    c = max(temp, c);
-    if (b <= a) {
-        if (c <= a) {
-            sum = d - a + c - b;
+    temp1 = a, temp2 = b;
+    a = min(temp1, temp2), b = max(temp1, temp2);
+    temp1 = c, temp2 = d;
+    c = min(temp1, temp2), d = max(temp1, temp2);
+    if (c <= a) {
+        if (d < a) {
+            cout << d - c + b - a + 2;
+        } else if (a <= d && d <= b) {
+            cout << b - c + 1;
         } else {
-            sum = max(d, c) - b;
+            cout << d - c + 1;
         }
-    } else if (a < b && b <= d) {
-        if (c <= d) {
-            sum = d - a;
+    } else if (a <= c && c <= b) {
+        if (d <= b) {
+            cout << b - a + 1;
         } else {
-            sum = c - a;
+            cout << d - a + 1;
         }
     } else {
-        sum = c - b + d - a;
+        cout << d - c + b - a + 2;
     }
-    cout << sum;
     return 0;
 }
