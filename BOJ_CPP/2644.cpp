@@ -2,7 +2,7 @@
 
 #define fastio ios::sync_with_stdio(0)
 using namespace std;
-bool visited[101];
+bool is_prime[101];
 
 int main() {
     fastio;
@@ -16,7 +16,7 @@ int main() {
         v[x].push_back(y);
     }
     queue<pair<int, int>> q;
-    visited[a] = 1;
+    is_prime[a] = 1;
     q.push({a, 0});
     while (!q.empty()) {
         auto[now, cnt] = q.front();
@@ -26,8 +26,8 @@ int main() {
             return 0;
         }
         for (auto next: v[now]) {
-            if (!visited[next]) {
-                visited[next] = 1;
+            if (!is_prime[next]) {
+                is_prime[next] = 1;
                 q.push({next, cnt + 1});
             }
         }

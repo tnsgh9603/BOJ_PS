@@ -3,7 +3,7 @@
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
 
-long long x[4], y[4], s[6];
+long long board[4], y[4], s[6];
 
 int main() {
     fastio;
@@ -12,11 +12,11 @@ int main() {
     while (tc--) {
         int k = 0;
         for (int i = 0; i < 4; ++i) {
-            cin >> x[i] >> y[i];
+            cin >> board[i] >> y[i];
         }
         for (int i = 0; i < 4; ++i) {
             for (int j = i + 1; j < 4; ++j) {
-                s[k] = (x[i] - x[j]) * (x[i] - x[j]) + (y[i] - y[j]) * (y[i] - y[j]);
+                s[k] = (board[i] - board[j]) * (board[i] - board[j]) + (y[i] - y[j]) * (y[i] - y[j]);
                 ++k;
             }
         }

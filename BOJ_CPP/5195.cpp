@@ -2,23 +2,23 @@
 
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
-int arr[1001][1001];
+int board[1001][1001];
 
 int main() {
     fastio;
     int T;
     cin >> T;
     for (int tc = 1; tc <= T; ++tc) {
-        memset(arr, 0, sizeof(arr));
+        memset(board, 0, sizeof(board));
         int c, d, t;
         cin >> c >> d >> t;
         set<int> ans;
         for (int i = 0; i < t; ++i) {
             int s, d, m;
             cin >> s >> d >> m;
-            arr[s][0] += m;
-            arr[s][d] += m;
-            if (arr[s][d] > 2100 || arr[s][0] > 40000) {
+            board[s][0] += m;
+            board[s][d] += m;
+            if (board[s][d] > 2100 || board[s][0] > 40000) {
                 ans.insert(s);
             }
         }

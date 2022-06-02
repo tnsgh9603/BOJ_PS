@@ -2,7 +2,7 @@
 
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
-int arr[21];
+int is_prime[21];
 
 int main() {
     fastio;
@@ -10,19 +10,19 @@ int main() {
     cin >> T;
     while (T--) {
         for (int i = 0; i < 20; ++i) {
-            cin >> arr[i];
+            cin >> is_prime[i];
         }
         for (int i = 19; i > 0; --i) {
-            if (arr[i] % 2 == 0) {
-                arr[i - 1] += arr[i] / 2;
-                arr[i] = 0;
+            if (is_prime[i] % 2 == 0) {
+                is_prime[i - 1] += is_prime[i] / 2;
+                is_prime[i] = 0;
             } else {
-                arr[i - 1] += arr[i] / 2;
-                arr[i] = 1;
+                is_prime[i - 1] += is_prime[i] / 2;
+                is_prime[i] = 1;
             }
         }
         for (int i = 0; i < 20; ++i) {
-            cout << arr[i] << " ";
+            cout << is_prime[i] << " ";
         }
         cout << "\n";
     }

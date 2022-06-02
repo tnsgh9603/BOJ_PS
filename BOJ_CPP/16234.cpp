@@ -4,7 +4,7 @@
 using namespace std;
 
 int n, board[51][51];
-bool visited[51][51];
+bool is_prime[51][51];
 
 bool OOB(int x, int y) {
     return 1 <= x and x <= n and 1 <= y and y <= n;
@@ -40,11 +40,11 @@ int main() {
         if (flag1) {
             break;
         }
-        memset(visited, 0, sizeof(visited));
+        memset(is_prime, 0, sizeof(is_prime));
         for (int i = 1; i <= n; ++i) {
             for (int j = 1; j <= n; ++j) {
-                if (!visited[i][j]) {
-                    visited[i][j] = 1;
+                if (!is_prime[i][j]) {
+                    is_prime[i][j] = 1;
                     queue<pair<int, int>> q;
                     q.push({i, j});
                     int sum = 0, cnt = 0;
@@ -59,8 +59,8 @@ int main() {
                         for (int j = 0; j < v[x][y].size(); ++j) {
                             int nx = v[x][y][j].first;
                             int ny = v[x][y][j].second;
-                            if (!visited[nx][ny]) {
-                                visited[nx][ny] = 1;
+                            if (!is_prime[nx][ny]) {
+                                is_prime[nx][ny] = 1;
                                 q.push({nx, ny});
                             }
                         }

@@ -2,7 +2,7 @@
 
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
-int visited[10];
+int is_prime[10];
 
 int main() {
     fastio;

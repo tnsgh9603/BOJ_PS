@@ -2,7 +2,7 @@
 
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
-double arr[100'001];
+double board[100'001];
 
 int main() {
     fastio;
@@ -11,13 +11,13 @@ int main() {
     for (int tc = 1; tc <= t; ++tc) {
         int n, m, T;
         cin >> n >> m >> T;
-        memset(arr, 0, sizeof(arr));
+        memset(board, 0, sizeof(board));
         for (int i = 0; i < m; ++i) {
             int x, y;
             double z;
             cin >> x >> y >> z;
             if (T - y >= 0 && T - y < 1000) {
-                arr[x] += z;
+                board[x] += z;
             }
         }
         double Y = 0, N = 0;
@@ -27,7 +27,7 @@ int main() {
             if (c == 'Y') {
                 ++Y;
             } else {
-                N += 1 / (1 + (arr[i] / 10000));
+                N += 1 / (1 + (board[i] / 10000));
             }
         }
         cout << "Data Set " << tc << ":\n" << fixed << setprecision(2) << Y << ' ' << N << "\n\n";

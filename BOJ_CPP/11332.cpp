@@ -13,9 +13,9 @@ int main() {
         cin >> s >> N >> T >> L;
         bool flag = 0;
         L *= 1'0000'0000;
-        if (s[3] == ')')
-            flag = N * T <= L ? 1 : 0;
-        else if (s[3] == '!') {
+        if (s[3] == ')') {
+            flag = (N * T <= L ? 1 : 0);
+        } else if (s[3] == '!') {
             d = 1;
             for (int i = 2; i <= N && d <= L; ++i) {
                 d *= i;
@@ -34,7 +34,7 @@ int main() {
         } else if (s[4] == '2') {
             flag = (N * N * T <= L ? 1 : 0);
         } else {
-            flag = N * N * N <= L / T ? 1 : 0;
+            flag = (N * N * N <= L / T ? 1 : 0);
         }
         cout << (flag ? "May Pass." : "TLE!") << "\n";
     }

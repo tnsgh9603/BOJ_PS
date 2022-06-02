@@ -3,7 +3,7 @@
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
 char board[101][101][101];
-bool visited[101];
+bool is_prime[101];
 
 int main() {
     fastio;
@@ -20,8 +20,8 @@ int main() {
         for (int k = 1; k <= w; ++k) {
             if (board[n][j][k] == 'x') {
                 for (int i = n - 1; i >= 0; --i) {
-                    if (!visited[i] && board[n][j][k] != board[i][j][k]) {
-                        visited[i] = 1;
+                    if (!is_prime[i] && board[n][j][k] != board[i][j][k]) {
+                        is_prime[i] = 1;
                     }
                 }
             }
@@ -29,7 +29,7 @@ int main() {
     }
     int cnt = 0;
     for (int i = 0; i < n; ++i) {
-        if (!visited[i]) {
+        if (!is_prime[i]) {
             ++cnt;
         }
     }

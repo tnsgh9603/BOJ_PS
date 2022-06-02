@@ -3,16 +3,16 @@
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
 string s[3];
-char x;
+char board;
 
 int main() {
     fastio;
     int i, j, n, m, t;
     cin >> n >> m >> s[0] >> s[1] >> t;
     for (i = 0; i < n / 2; ++i, --j) {
-        x = s[0][i];
+        board = s[0][i];
         s[0][i] = s[0][n - i - 1];
-        s[0][n - i - 1] = x;
+        s[0][n - i - 1] = board;
     }
     for (i = 0; i < n - t; ++i) {
         cout << s[0][i];

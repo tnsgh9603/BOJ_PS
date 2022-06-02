@@ -3,7 +3,7 @@
 #define fastio ios::sync_with_stdio(0)
 using namespace std;
 typedef pair<int, int> pii;
-bool visited[51][51];
+bool is_prime[51][51];
 int board[51][51];
 
 int main() {
@@ -34,7 +34,7 @@ int main() {
                 c += N;
             }
             points[i] = {r, c};
-            visited[r][c] = 1;
+            is_prime[r][c] = 1;
             ++board[r][c];
         }
         for (int i = 0; i < pcnt; ++i) {
@@ -52,8 +52,8 @@ int main() {
         pcnt = 0;
         for (int i = 0; i < N; ++i) {
             for (int j = 0; j < N; ++j) {
-                if (visited[i][j]) {
-                    visited[i][j] = 0;
+                if (is_prime[i][j]) {
+                    is_prime[i][j] = 0;
                 } else if (board[i][j] >= 2) {
                     points[pcnt++] = {i, j};
                     board[i][j] -= 2;

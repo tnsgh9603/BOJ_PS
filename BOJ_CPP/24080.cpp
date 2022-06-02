@@ -2,7 +2,7 @@
 
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
-int arr[5];
+int is_prime[5];
 
 int main() {
     fastio;
@@ -11,7 +11,7 @@ int main() {
     string s;
     cin >> s;
     for (auto i: s) {
-        if (++arr[i - 'A'] == 1) {
+        if (++is_prime[i - 'A'] == 1) {
             ++cnt;
         }
     }

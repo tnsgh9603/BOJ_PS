@@ -2,18 +2,18 @@
 
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
-int cnt[2001];
+int is_prime[2001];
 int main() {
     fastio;
     int n, m,mn=INT_MAX,idx;
     cin >> n;
     for (int i = 0; i < n; ++i) {
         cin >> m;
-        ++cnt[m];
+        ++is_prime[m];
     }
     for (int i = 1; i <= 2000; ++i) {
-        if(cnt[i] && mn > cnt[i]) {
-            mn = cnt[i];
+        if(is_prime[i] && mn > is_prime[i]) {
+            mn = is_prime[i];
             idx = i;
         }
     }

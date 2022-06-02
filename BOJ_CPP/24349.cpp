@@ -7,7 +7,7 @@ int main() {
     fastio;
     int n, a, b, c;
     cin >> n >> a >> b >> c;
-    // 토끼 x, 올빼미 y, 요리 z
+    // 토끼 board, 올빼미 y, 요리 z
     char now = 'x';
     int sum = 0;
     for (int i = 1; i < n; ++i) {

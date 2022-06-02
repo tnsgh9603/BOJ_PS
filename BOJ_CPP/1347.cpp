@@ -4,7 +4,7 @@
 using namespace std;
 
 int xmin, ymin, xmax, ymax, j, l;
-bool visited[201][201];
+bool is_prime[201][201];
 
 int main() {
     fastio;
@@ -12,7 +12,7 @@ int main() {
     string s;
     cin >> i >> s;
     xmin = ymin = xmax = ymax = i = j = 50;
-    visited[i][j] = 1;
+    is_prime[i][j] = 1;
     for (char c: s) {
         switch (c) {
             case 'L':
@@ -25,7 +25,7 @@ int main() {
                 i += "2101"[l] - '1';
                 j += "1012"[l] - '1';
         }
-        visited[i][j] = 1;
+        is_prime[i][j] = 1;
         xmin = min(i, xmin);
         xmax = max(i, xmax);
         ymin = min(j, ymin);
@@ -33,7 +33,7 @@ int main() {
     }
     for (i = xmin; i <= xmax; ++i, cout << '\n') {
         for (j = ymin; j <= ymax; ++j) {
-            cout << (visited[i][j] ? '.' : '#');
+            cout << (is_prime[i][j] ? '.' : '#');
         }
     }
     return 0;
