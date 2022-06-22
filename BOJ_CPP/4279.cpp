@@ -2,7 +2,7 @@
 
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
-int g[23], s[23], b[23];
+int g[21], s[21], b[21];
 
 bool chk(int n, int c, double x, double y, double z) {
     double mx = -1;
