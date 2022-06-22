@@ -2,9 +2,9 @@
 
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
-int g[21], s[21], b[21];
+int g[23], s[23], b[23];
 
-bool chk(int n, int c, double x, double y, double z) {
+bool chk1(int n, int c, double x, double y, double z) {
     double mx = -1;
     for (int i = 1; i <= n; ++i) {
         double w = g[i] * x + s[i] * y + b[i] * z;
@@ -15,10 +15,10 @@ bool chk(int n, int c, double x, double y, double z) {
     return g[c] * x + s[c] * y + b[c] * z >= mx;
 }
 
-bool canada_can_win(int n, int c) {
+bool chk2(int n, int c) {
     for (int j = -2; j <= 2; ++j) {
         for (int k = -3; k <= 3; ++k) {
-            if (chk(n, c, 1, pow(n, j), pow(n, k))) {
+            if (chk1(n, c, 1, pow(n, j), pow(n, k))) {
                 return 1;
             }
         }
@@ -41,7 +41,7 @@ int main() {
                 c = i;
             }
         }
-        cout << "Canada " << (canada_can_win(n, c) ? "wins!" : "cannot win.") << "\n";
+        cout << "Canada " << (chk2(n, c) ? "wins!" : "cannot win.") << "\n";
     }
     return 0;
 }
