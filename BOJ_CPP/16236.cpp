@@ -3,17 +3,17 @@
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
 int board[21][21], n, sz, now_x, now_y, eat;
-bool visited[21][21];
+bool visited1[21][21];
 
 bool OOB(int x, int y) {
     return 1 <= x and x <= n and 1 <= y and y <= n;
 }
 
 int distance(int x1, int y1, int x2, int y2) {
-    memset(visited, 0, sizeof(visited));
+    memset(visited1, 0, sizeof(visited1));
     queue<tuple<int, int, int>> q;
     q.push({x1, y1, 0});
-    visited[x1][y1] = 1;
+    visited1[x1][y1] = 1;
     while (!q.empty()) {
         auto[x, y, cnt] = q.front();
         q.pop();
@@ -23,9 +23,9 @@ int distance(int x1, int y1, int x2, int y2) {
         for (int i = 0; i < 4; ++i) {
             int nx = x + "0121"[i] - '1';
             int ny = y + "1210"[i] - '1';
-            if (OOB(nx, ny) and !visited[nx][ny] and (board[nx][ny] == 0 or board[nx][ny] <= sz)) {
+            if (OOB(nx, ny) and !visited1[nx][ny] and (board[nx][ny] == 0 or board[nx][ny] <= sz)) {
                 q.push({nx, ny, cnt + 1});
-                visited[nx][ny] = 1;
+                visited1[nx][ny] = 1;
             }
         }
     }

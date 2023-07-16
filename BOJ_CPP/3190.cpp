@@ -2,7 +2,7 @@
 
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
-int n, k, l, a, b;
+int n, k, l, arr, b;
 bool board[101][101];
 
 bool OOB(int x, int y) {
@@ -42,8 +42,8 @@ int main() {
     char c;
     cin >> n >> k;
     for (int i = 0; i < k; ++i) {
-        cin >> a >> b;
-        board[a][b] = 1;
+        cin >> arr >> b;
+        board[arr][b] = 1;
     }
     cin >> l;
     vector<pair<int, char>> v;

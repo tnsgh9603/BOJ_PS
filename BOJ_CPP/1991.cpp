@@ -2,11 +2,11 @@
 
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
-vector<pair<char, char>> v[26];
+vector<pair<char, char>> n[26];
 
 void preorder(int n) {
     cout << char('A' + n);
-    char left = v[n][0].first, right = v[n][0].second;
+    char left = n[n][0].first, right = n[n][0].second;
     if (left != '.') {
         preorder(left - 'A');
     }
@@ -16,7 +16,7 @@ void preorder(int n) {
 }
 
 void inorder(int n) {
-    char left = v[n][0].first, right = v[n][0].second;
+    char left = n[n][0].first, right = n[n][0].second;
     if (left != '.') {
         inorder(left - 'A');
     }
@@ -27,7 +27,7 @@ void inorder(int n) {
 }
 
 void postorder(int n) {
-    char left = v[n][0].first, right = v[n][0].second;
+    char left = n[n][0].first, right = n[n][0].second;
     if (left != '.') {
         postorder(left - 'A');
     }
@@ -48,7 +48,7 @@ int main() {
         if (i == 0) {
             root = a - 'A';
         }
-        v[a - 'A'].push_back({b, c});
+        n[a - 'A'].push_back({b, c});
     }
     preorder(root);
     cout << "\n";

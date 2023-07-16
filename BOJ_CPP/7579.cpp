@@ -2,7 +2,7 @@
 
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
-int memory[101], cost[101], dp[10001];
+int memory[101], cost[101], mn[10001];
 
 int main() {
     fastio;
@@ -18,11 +18,11 @@ int main() {
     for (int i = 1; i <= n; ++i) {
         int mem = memory[i], val = cost[i];
         for (int j = sum; j >= val; --j) {
-            dp[j] = max(dp[j], dp[j - val] + mem);
+            mn[j] = max(mn[j], mn[j - val] + mem);
         }
     }
     int idx = 0;
-    while (dp[idx++] < m);
+    while (mn[idx++] < m);
     cout << idx - 1;
     return 0;
 }

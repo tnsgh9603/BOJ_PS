@@ -2,7 +2,7 @@
 
 #define fastio ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 using namespace std;
-bool board[101][101], visited[101][101];
+bool board[101][101], visited1[101][101];
 int n, m;
 
 bool OOB(int x, int y) {
@@ -21,7 +21,7 @@ int main() {
     }
     queue<tuple<int, int, int>> q;
     q.push({1, 1, 1});
-    visited[1][1] = 1;
+    visited1[1][1] = 1;
     while (!q.empty()) {
         auto[x, y, cnt] = q.front();
         q.pop();
@@ -32,9 +32,9 @@ int main() {
         for (int i = 0; i < 4; ++i) {
             int nx = x + "0121"[i] - '1';
             int ny = y + "1210"[i] - '1';
-            if (OOB(nx, ny) and !visited[nx][ny] and board[nx][ny]) {
+            if (OOB(nx, ny) and !visited1[nx][ny] and board[nx][ny]) {
                 q.push({nx, ny, cnt + 1});
-                visited[nx][ny] = 1;
+                visited1[nx][ny] = 1;
             }
         }
     }
